@@ -22,6 +22,7 @@ Noter 是一个现代化的笔记应用，使用 Flet 和 SQLite 构建。它提
     requirements.txt  # 项目依赖
     run.py  # 应用启动脚本
     schema.sql  # 数据库初始化脚本
+    noter.spec # Flet 打包应用配置文件
 ```
 ## 安装依赖
 
@@ -34,11 +35,6 @@ pip install -r requirements.txt
 ## 初始化数据库
 
 在首次运行项目之前，需要初始化数据库。你可以通过运行以下命令来完成：
-
-```sh
-python noter/db/datasource.py
-```
-
 ## 运行项目
 
 在项目根目录下运行以下命令启动应用：
