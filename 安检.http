@@ -1,0 +1,382 @@
+@dev=https://zhyj-yfwb-test.testdolphin.com/yj-safe-server/ezsafe-server
+
+# @name login
+POST {{dev}}/oauth2/password
+Content-Type: application/json
+
+{
+  "username": "wgzyf",
+  "password": "Kedacom123#"
+}
+@jwt_token={{login.response.body.$.result.jwt_token}}
+
+### 网格员待我审核，查询为空
+POST  {{dev}}/qyxxsh/appShPage
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+     "pageNo": 0,
+     "pageSize": "20",
+     "WWGYBH": "",
+     "LX": "",
+     "SSXQ": "",
+     "WGYBH": "47fecd8edb2b49828e6c1ebe53d77ec3",
+     "DWSH": "1",
+     "QYMC": "",
+     "SHZT": null,
+     "SSJS": null,
+     "QYBH": ""
+}
+### 网格员待我审核，查询为空
+POST  {{dev}}/qyxxsh/appShPage
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+     "pageNo": 0,
+     "pageSize": "20",
+     "WWGYBH": "",
+     "LX": "",
+     "SSXQ": "",
+     "WGYBH": "47fecd8edb2b49828e6c1ebe53d77ec3",
+     "DWSH": "1",
+     "QYMC": "",
+     "SHZT": null,
+     "SSJS": null,
+     "QYBH": ""
+}
+
+### 所属网格
+GET {{dev}}/grid/belongGird?RYBH=59f0c288a710470a93646b2ae9308943
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+### APP综合查询列表接口
+POST  {{dev}}/akey/appZhQuery
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+ {
+    "pageNo": 0,
+    "pageSize": "20",
+    "QYMC": "",
+    "RYBH": "94e0658c7f63448a96096c781bc394cd",
+    "SSXQ": "320412102",
+    "QYLX": "2"
+ }
+### 所属网格
+GET {{dev}}/institution/loginBelongDept
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+###
+GET  {{dev}}/regionalGrid/searchRegionalGridTree/320412100?hasWg=true&hasZq=false
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+
+###
+GET  {{dev}}/regionalGrid/searchGridTree/320507001?hasWwg=true
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+###
+POST  {{dev}}/regionalGrid/getRegionalGridList 
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+"size": 10,
+ "xznbbm": "320412100","displayLevel": "default"
+}
+
+###
+POST  {{dev}}/qyxxsh/saveShjl 
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+"size": 10,
+ "xznbbm": "320412100","displayLevel": "default"
+}
+###    企业信息查不到名称相关
+GET  {{dev}}/basicInfo/qyjcxx/detail/4fc5ccee3e3142c89e60a4e3d35b198b
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+### 微网格员-新建的社会场所查不到
+POST   {{dev}}/akey/appZhQuery
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+ {
+    "pageNo": 0,
+    "pageSize": "20",
+    "QYMC": "",
+    "RYBH": "94e0658c7f63448a96096c781bc394cd",
+    "SSXQ": "320412102",
+    "QYLX": "2"
+ }
+
+###
+POST  https://zhyj-yfwb-test.testdolphin.com/yj-safe-server/ezsafe-server/qyxxsh/appShPage
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+ 
+  {
+     "pageNo": 0,
+     "pageSize": "20",
+     "WWGYBH": "",
+     "LX": null,
+     "SSXQ": null,
+     "WGYBH": "47fecd8edb2b49828e6c1ebe53d77ec3",
+     "DWSH": "1",
+     "QYMC": "",
+     "SHZT": null,
+     "SSJS": null,
+     "QYBH": "48180fb7142e4909ab6849f3843def30"
+  }
+ 
+
+### 
+POST {{dev}}/qyxxsh/saveShjl
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+    "XXBH": "9c9828d2c216428dabfd223cab769b7a",
+    "SHZT": "2"
+  
+ }
+
+### 信息审核详情接口
+GET  {{dev}}/qyxxsh/info/c3b34638c5e0214ad77bee75ec2f7f53
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+### APP信息审核和待我审核列表接口//类型1 创建账号 2移除网格 3关停企业 4变更重点领域
+## 局内审核列表失败
+POST  {{dev}}/qyxxsh/appShPage
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+     "pageNo": 0,
+     "pageSize": "20",
+     "WWGYBH": null,
+     "LX": "4",
+     "SSXQ": "320412102",
+     "WGYBH": null,
+     "DWSH": null,
+     "QYMC": "",
+     "SHZT": null,
+     "SSJS": "2"
+  }
+### 政府端关停企业管理列表
+POST  {{dev}}/akey/queryGtqy
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+    "QYLX": "",
+    "QYMC": "",
+    "KSSJ": "",
+    "JSSJ": "2",
+    "pageNo": 0,
+    "pageSize": 20,  
+    "SSJS": "2"
+}
+
+
+###
+POST  {{dev}}/qyxxsh/govShPage
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+    "SSXQ": "",
+    "QYMC": "",
+    "QYLX": "1",
+    "LX": "",
+    "SHZT": "",
+    "SSJS": "",
+    "DWSH": "",
+    "KSSJ": "",
+    "JSSJ": "",
+    "pageNo": 0,
+    "pageSize": 1
+}
+
+### 所属网格
+GET {{dev}}/userManager/getBelongGridNumberListByDlmyw?dlmyw=59f0c288a710470a93646b2ae9308943
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+###  //企业类型 1企业 2社会小场所
+POST {{dev}}/userManager/App/createOrUpdateEnterPrise
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+      "QYLX": "2",
+      "AQFZR": "d001",
+      "QYMC": "sh001",
+      "TYSHXYBM": "dsfds323223",
+      "JD": "119.94005499999999",
+      "FJXX": [
+       {
+          "FJHZ": "jpg",
+          "FJMC": "u=3835220360,2303459051&fm=217&app=126&size=re3,2&q=75&n=0&g=4n&f=JPEG&fmt=auto&maxorilen2heic=2000000.jpg",
+          "FJMS": "u=3835220360,2303459051&fm=217&app=126&size=re3,2&q=75&n=0&g=4n&f=JPEG&fmt=auto&maxorilen2heic=2000000.jpg",
+          "FJDZ": "https://zhyj-yfwb-test.testdolphin.com/yj-safe-server/ezsafe-server/resource/file/imageFile/2024-12-27/7bc32c261c064bd68ae95c5f9c0d459f.jpg",
+          "FJLX": "imageFile"
+       }
+      ],
+      "SSWG": {
+        "WGBH": "5f7e82387ee24186abd3e5e79eb0b170",
+        "WGMC": "牛塘02"
+     },
+      "SSWWG": {
+        "WWGBH": "f0217da0160d469f8ce46242c0965b91",
+        "WWGMC": "牛塘青云村"
+     },
+      "WD": "32.106612",
+      "LXDH": "21212121",
+      "ISWGY": false
+   }
+###
+GET {{dev}}/authority/me?locale=en  
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+http://ccs-dev.devdolphin.com/ccs-terminal-server/incident/taskDeploy/pageQuery?incidentCode=24000001210165041&personCode=327069707796492&locale=en_US&pageNo=1&pageSize=20
+###
+GET  https://ccs-prod.bestkunlun.com/ccs-terminal-server/incident/actionInfo?incidentCode=24000001212094422
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+###@name me
+GET {{dev}}/authority/me?locale=en
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+###
+POST http://ccs-dev.devdolphin.com/ccs-terminal-server/ccsDispatch/incidentTaskDeploy/changeStatus
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+{
+     "id": "327293333405710",
+     "taskStatus": "2"
+}
+###@name taskDeploy
+GET {{dev}}/incident/taskDeploy/pageQuery?incidentCode=24000001128155740&personCode=312211895484476&locale=zh-CN&pageNo=1&pageSize=10
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+ 
+
+###@name queryList
+GET {{dev}}/incident/taskDeploy/queryList?incidentCode=24000001129105857&personCode=312211895484476&locale=zh-CN
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+ 
+
+###
+GET {{dev}}/incident/taskDeploy/queryFeedback?taskId=326882583117835&personCode=312211895484476&locale=zh-CN&pageNo=1&pageSize=10
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+ 
+
+
+###@name queryList
+POST {{dev}}/incident/taskDeploy/feedback
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+ 
+{
+    "taskId": "string",
+    "incidentCode": "string",
+    "content": "string",
+    "departmentCode": "string",
+    "departmentName": "string",
+    "personCode": "string",
+    "personName": "string",
+    "personPost": "string",
+    "attachments": [
+        {
+            "fileId": "string",
+            "originalName": "string",
+            "name": "string",
+            "thumbnailUrl": "string",
+            "url": "string"
+        }
+    ]
+}
+ 
+
+
+###
+POST https://10.165.120.4:29443/vline/ptt/group/getGroupMembers
+Content-Type: application/json; charset=utf-8
+
+{
+    "access_token": null,
+    "sessionId": null,
+    "uid": null,
+    "version": 1,
+    "customerServiceCodeList": [],
+    "groupCode": "17592190357695",
+    "groupCodeList": null,
+    "lineCodeList": [],
+    "members": null,
+    "operator": null,
+    "userCodeList": [
+        "324714127949832"
+    ]
+}
+
+###
+POST   http://ccs-prod.bestkunlun.com/vline/ptt/group/getGroupMembers
+Content-Type: application/json; charset=utf-8
+
+{
+    "access_token": "mjCA+d5BIlVjz9w3L82E0qdGgEY3LNx8n2u2bYbIyi7zy4nFwnT+GcRr+KfDJOBEKm9V0pt/RKTVrY5Hy/nXh/go/epJjrJj83Dr5dUcp4RYx+GugNxN7uAtDF53q3Sl",
+    "sessionId": "mjCA+d5BIlVjz9w3L82E0qdGgEY3LNx8n2u2bYbIyi7zy4nFwnT+GcRr+KfDJOBEKm9V0pt/RKTVrY5Hy/nXh/go/epJjrJj83Dr5dUcp4RYx+GugNxN7uAtDF53q3Sl",
+    "uid": "mjCA+d5BIlVjz9w3L82E0qdGgEY3LNx8n2u2bYbIyi7zy4nFwnT+GcRr+KfDJOBEKm9V0pt/RKTVrY5Hy/nXh/go/epJjrJj83Dr5dUcp4RYx+GugNxN7uAtDF53q3Sl",
+    "version": 1,
+    "groupCode": "17594432606399",
+    "limit": 300,
+    "relatedParty": 0,
+    "snapshotStr": "1733497432000_17594432606399_312211895484476@000000",
+    "start": 0,
+    "state": 0,
+    "updateTime": 0,
+    "userAuthority": null,
+    "userCode": null
+}
+
+###
+GET  http://ccs-dev.devdolphin.com/ccs-terminal-server/incident/taskDeploy/pageQuery?incidentCode=24000001209154524&personCode=327069707796492&locale=en_US&pageNo=1&pageSize=20
+jwt-token:{{jwt_token}}
+Content-Type: application/json
+
+
+
+###
+GET  http://ccs-prod.bestkunlun.com/kaas-server/open-api/contact-person/search?clientId=ptt&clientSecret=68ya20
+
+###
+POST  https://ccs-prod.bestkunlun.com/kaas-server/open-api/contact-person/search?clientId=vline-ptt&clientSecret=J2neO5
+Content-Type: application/json
+
+{
+    "param": {
+        "needContactWay": "true",
+        "f_in_code": "322362578829321",
+        "f_in_status": "0,1",
+        "ignoreQueryFields": "showInAddressBook",
+        "sorts[0].name": "sortIndex",
+        "sorts[0].order": "ASC",
+        "sorts[1].name": "name.sort",
+        "sorts[1].order": "ASC",
+        "paging": "false"
+    }
+}
